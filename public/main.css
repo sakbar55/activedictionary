@@ -1,0 +1,16 @@
+h1 {
+  text-align:left
+}
+
+h3 {
+  text-align:left
+}
+
+p  {
+  padding-left: 18px;
+  font-size: 20px
+}
+
+a:visited {
+  color: red;
+}

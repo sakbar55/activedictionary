@@ -1,27 +1,13 @@
 <html>
 <head>
   <title>The Limited Dictionary</title>
-  <styles>
-    h1 {
-      text-align:left
-       }
-    h3 {
-      text-align:left
-       }
-    p  {
-      padding-left: 18px;
-      font-size: 20px
-      }
-    a:visited {
-      color: red;
-      }
-  </style>
+  <link rel="stylesheet" href="<%= url('/main.css') %>">
 </head>
 <body>
   <h1>Welcome to the Limited Dictionary</h1>
-  <h3>'Your super duper short dictionary.'</h3>
+  <h3>Your super duper short dictionary.</h3>
   <div>
-    <form method="GET" action=/search">
+    <form method="GET" action="/search">
       Looking for something?
       <input name = "search">
     <button type="submit">Show</button>
@@ -30,8 +16,8 @@
 <div>
   Don't see the word you're looking for? <a href="/add">ADD</a> to make the Limited Dictionary more awesome!
 </div>
-<% Definition.all.each. do |value|%>
-<p> <%= value.word %> = <%= value.meaning %> </p>
+<% Word.all.each do |value| %>
+<p> <%= value.word %> = <%= value.definition %> </p>
 <%end%>
 </body>
 </html>

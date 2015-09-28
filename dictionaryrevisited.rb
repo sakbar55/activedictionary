@@ -9,7 +9,7 @@ adapter: "sqlite3",
 database: File.dirname(__FILE__) + "/definitions.db"
 )
 
-class Definition < ActiveRecord::Base
+class Word < ActiveRecord::Base
 end
 
 Tilt.register Tilt::ERBTemplate, 'html.erb'
@@ -23,7 +23,7 @@ get "/add" do
 end
 
 post "/save" do
-  add_word = Definition.create(word: params["word"], meaning: params ["meaning"]).valid?
+  add_word = Word.create(word: params["word"], meaning: params["meaning"]).valid?
   if add_word == true
     redirect '/'
   else
@@ -37,7 +37,7 @@ end
 
 get "/search" do
 
-  definition = Definition.find_by(word: params[:search])
-  @definition = "#{definition.word} = #{definition.meaning}"
+  definition = Word.find_by(word: params[:search])
+  @definition = "#{definition.word} = #{definition.definition}"
   erb :search
 end
